@@ -50,10 +50,12 @@ class ExpTouch {
 
         this.tickID = 0;
 
-        // 运动的对象
-        this.target = opt.target;
+
         // 反馈触摸的 dom
         this.element = typeof opt.touch === "string" ? document.querySelector(opt.touch) : opt.touch;
+        // 运动的对象
+        this.target = Tools.getValue(opt.target, this.element);
+
         // 只监听垂直方向
         this.vertical = Tools.getValue(opt.vertical, true);
         // 代表用户起手时候是横向的，而你监听的是竖直方向的 touch，这样的话是不会触发运动。
@@ -68,8 +70,9 @@ class ExpTouch {
         this.preventDefaultException = {tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/};
         // 灵敏度
         this.sensitivity = Tools.getValue(opt.sensitivity, 1);
-        // 运动缓冲系数
+        // 拖拽期间的摩擦力
         this.moveFactor = Tools.getValue(opt.moveFactor, 1);
+        // 运动期间的摩擦力
         this.factor = Tools.getValue(opt.factor, 1);
         // 用来设置超出 min 或者 max 进行拖拽的运动比例系数。系数越小，超出 min 和 max 越难拖动，也就是受到的阻力越大。
         this.outFactor =  Tools.getValue(opt.outFactor, 0.3);
@@ -417,6 +420,40 @@ class ExpTouch {
 }
 
 export {ExpTouch};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
