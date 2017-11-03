@@ -1,5 +1,5 @@
 import $ from './zepto.js';
-import * as Tools from './tools.es';
+import * as Tools from './tools.js';
 
 class ExpTouch {
     constructor (opt) {
